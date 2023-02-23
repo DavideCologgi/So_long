@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:12:25 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/02/21 14:32:48 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/02/23 16:45:42 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,26 @@
 #include "./Supreme_Libft/libft.h"
 #include "./get_next_line.h"
 
-typedef struct s_vars {
+typedef struct s_data {
+	void	*img_player;
+	void	*img_wall;
+	void	*img_floor;
+	void	*img_enemy;
+	void	*img_exit;
+	void	*img_collectible;
 	void	*mlx;
 	void	*win;
-} t_vars;
-
-typedef struct s_data {
-	void	*img;
-	void	*addr;
-	char	**maps;
-	int		bits_per_pixel;
-	int		line_lenght;
-	int		endian;
+	char	**map;
+	int		img_width;
+	int		img_height;
+	int		vwall_len;
+	int		hwall_len;
+	int		player;
+	int		exit;
+	int		collectible;
 } t_data;
 
-int	ESC_close(int keycode, t_vars *vars);
+int	ESC_close(int keycode, t_data *game);
 int	redx_close();
 
 #endif
