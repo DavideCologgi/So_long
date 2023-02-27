@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:12:25 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/02/23 16:45:42 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/02/27 16:02:38 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ typedef struct s_data {
 	int		player;
 	int		exit;
 	int		collectible;
+	int		pgr_pos;
+	int		pgc_pos;
 } t_data;
 
 int	ESC_close(int keycode, t_data *game);

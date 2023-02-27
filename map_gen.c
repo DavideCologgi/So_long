@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_gen.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 10:24:54 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/02/23 16:45:39 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/02/27 19:25:15 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,12 @@ void	map_gen(t_data *game, char **map)
 			if (map[r][c] == '1')
 				mlx_put_image_to_window(game->mlx, game->win, game->img_wall,
 					c * 63, r * 63);
-			if (map[r][c] == 'P')
+			if (map[r][c] == 'P'){
 				mlx_put_image_to_window(game->mlx, game->win, game->img_player,
 					c * 63, r * 63);
+				pgr_pos = r;
+				pgc_pos = c;
+			}
 			if (map[r][c] == 'E')
 				mlx_put_image_to_window(game->mlx, game->win, game->img_exit,
 					c * 63, r * 63);

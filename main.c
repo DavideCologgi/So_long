@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 11:27:28 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/02/23 16:45:43 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/02/27 15:55:17 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(void)
 	render_images(game);
 	game->mlx = mlx_init();
 	game->win= mlx_new_window(game->mlx, 1920, 1080, "");
-	map_gen(game);
+	map_gen(game, game->map);
 	mlx_hook(game->win, 2, 1L<<0, ESC_close, &game);
 	mlx_hook(game->win, 17, 0, redx_close, &game);
 	mlx_loop(game->mlx);
