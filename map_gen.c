@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 09:54:17 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/02/28 16:35:03 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/01 15:07:03 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,32 +31,36 @@ void	render_imgs(t_data *game)
 
 void	map_gen(t_data *game)
 {
-	size_t	c;
-	size_t	r;
+	int	c;
+	int	r;
 
 	r = 0;
 	while (r < game->vwall_len)
 	{
 		c = 0;
-		while (c < game->hwall_len)
+		while (game->map[r][c])
 		{
 			mlx_put_image_to_window(game->mlx, game->win, game->img_floor,
-				c * 63, r * 63);
+				c * 64, r * 64);
 			if (game->map[r][c] == '1')
 				mlx_put_image_to_window(game->mlx, game->win, game->img_wall,
-					c * 63, r * 63);
-			if (game->map[r][c] == 'P'){
+					c * 64, r * 64);
+			if (game->map[r][c] == 'P')
+			{
 				mlx_put_image_to_window(game->mlx, game->win, game->img_player,
-					c * 63, r * 63);
+					c * 64, r * 64);
 				game->pgr_pos = r;
 				game->pgc_pos = c;
 			}
 			if (game->map[r][c] == 'E')
 				mlx_put_image_to_window(game->mlx, game->win, game->img_exit,
-					c * 63, r * 63);
+					c * 64, r * 64);
 			if (game->map[r][c] == 'C')
 				mlx_put_image_to_window(game->mlx, game->win,
-					game->img_collectible, c * 63, r * 63);
+					game->img_collectible, c * 64, r * 64);
+			if (game->map[r][c] == 'N')
+				mlx_put_image_to_window(game->mlx, game->win, game->img_enemy,
+					c * 64, r * 64);
 			c++;
 		}
 		r++;

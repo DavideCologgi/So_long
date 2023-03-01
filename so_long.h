@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:12:25 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/02/28 16:47:01 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/01 15:02:32 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 # define SO_LONG_H
 #include "./minilibx/mlx.h"
 #include "./get_next_line.h"
-
-#ifndef BUFFER_SIZE
-# define BUFFER_SIZE 1000
-#endif
+#include <unistd.h>
+#include <stdio.h>
+#include <fcntl.h>
+#include <errno.h>
+#include <string.h>
 
 typedef struct s_data {
 	void	*img_player;
@@ -29,28 +30,29 @@ typedef struct s_data {
 	void	*mlx;
 	void	*win;
 	char	**map;
+	int		move_counter;
 	int		img_width;
 	int		img_height;
-	size_t	vwall_len;
-	size_t	hwall_len;
+	int		vwall_len;
+	int		hwall_len;
 	int		player;
 	int		exit;
 	int		collectible;
+	int		enemy;
 	int		pgr_pos;
 	int		pgc_pos;
 	int		fd;
 } t_data;
 
-int			ESC_close(int keycode, t_data *game);
-int			redx_close();
-void		check_objects(char *last, t_data *game);
-char		*check_restof_map(char *line, t_data *game);
-void		check_first_line(t_data *game);
-void		check_map(t_data *game, char **argv);
-void		pg_move(t_data *game, int key_pressed, int move_counter);
-void		keypressed(t_data *game);
+int			exit_game(t_data *game);
+int			open_map(t_data *game, char **argv);
+int			keypressed(int	key_pressed, t_data *game);
+void		pg_move(t_data *game, int key_pressed);
 void		render_imgs(t_data *game);
 void		map_gen(t_data *game);
-static void	*ft_memset(void *b, int c, size_t length);
+void		grab_collectible(t_data *game);
+void		enemy_touch(t_data *game);
+void		check_map(t_data *game);
+void		check_objects(t_data *game);
 
 #endif

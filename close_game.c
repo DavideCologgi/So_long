@@ -6,24 +6,25 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:36:08 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/02/28 12:35:48 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/01 12:27:19 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	ESC_close(int keycode, t_data *game)
+int	exit_game(t_data *game)
 {
-	if (keycode == 53)
-	{
-		mlx_destroy_window(game->mlx, game->win);
-		exit(0);
-	}
-	return (0);
-}
+	int	line;
 
-int	redx_close()
-{
+	line = 0;
+	if (game->win)
+		mlx_destroy_window(game->mlx, game->win);
+	free(game->mlx);
+	while (line < game->vwall_len - 1)
+	{
+		free(game->map[line]);
+		line++;
+	}
+	free(game->map);
 	exit (0);
-	return (0);
 }

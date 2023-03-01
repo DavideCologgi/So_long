@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 11:27:28 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/02/28 16:47:01 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/01 16:49:03 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,21 @@ static void	*ft_memset(void *b, int c, size_t length)
 
 int	main(int argc, char **argv)
 {
-	t_data	*game;
+	t_data	game;
 
 	if (argc != 2)
 		return (0);
 	ft_memset(&game, 0, sizeof(t_data));
-	check_map(game, argv);
-	render_imgs(game);
-	game->mlx = mlx_init();
-	game->win= mlx_new_window(game->mlx, 1920, 1080, "Eden's Snake");
-	map_gen(game);
-	game_exe(game);
-	mlx_key_hook(game->win, keypressed, &game);
-	mlx_hook(game->win, 2, 1L<<0, ESC_close, &game);
-	mlx_hook(game->win, 17, 0, redx_close, &game);
-	mlx_loop(game->mlx);
+	open_map(&game, argv);
+	check_map(&game);
+	game.mlx = mlx_init();
+	game.win= mlx_new_window(game.mlx, game.hwall_len * 64,
+		game.vwall_len * 64, "Eden's Snake");
+	render_imgs(&game);
+	map_gen(&game);
+	mlx_key_hook(game.win, keypressed, &game);
+	mlx_hook(game.win, 2, 1L<<0, exit_game, &game);
+	mlx_hook(game.win, 17, 0, exit_game, &game);
+	mlx_loop(game.mlx);
 	return (0);
 }

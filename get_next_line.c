@@ -6,101 +6,74 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 09:58:47 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/02/28 12:35:38 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/01 15:02:33 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_get_line(int fd, char *line)
+static char	*read_line(int fd, char *buffer, char *backup)
 {
-	char	*buffer;
-	ssize_t	read_bytes;
+	int		read_line;
+	char	*char_temp;
 
-	buffer = (char *)malloc(BUFFER_SIZE + 1);
-	if (!buffer)
-		return (NULL);
-	read_bytes = 1;
-	while (!ft_strchr(line, '\n') && read_bytes != 0)
+	read_line = 1;
+	while (read_line != '\0')
 	{
-		read_bytes = read(fd, buffer, BUFFER_SIZE);
-		if (read_bytes == -1)
-		{
-			free (buffer);
-			return (NULL);
-		}
-		buffer[read_bytes] = '\0';
-		line = ft_strjoin(line, buffer);
+		read_line = read(fd, buffer, BUFFER_SIZE);
+		if (read_line == -1)
+			return (0);
+		else if (read_line == 0)
+			break ;
+		buffer[read_line] = '\0';
+		if (!backup)
+			backup = ft_strdup("");
+		char_temp = backup;
+		backup = ft_strjoin(char_temp, buffer);
+		free(char_temp);
+		char_temp = NULL;
+		if (ft_strchr (buffer, '\n'))
+			break ;
 	}
-	free (buffer);
-	return (line);
+	return (backup);
 }
 
-char	*ft_get_next_line(char *line)
+static char	*extract_line(char *line)
 {
-	int		i;
-	char	*str;
+	size_t	count;
+	char	*backup;
 
-	i = 0;
-	if (!line[i])
-		return (NULL);
-	while (line[i] && line[i] != '\n')
-		i++;
-	str = (char *)malloc(sizeof(char) * (i + 2));
-	if (!str)
-		return (NULL);
-	i = 0;
-	while (line[i] && line[i] != '\n')
+	count = 0;
+	while (line[count] != '\n' && line[count] != '\0')
+		count++;
+	if (line[count] == '\0' || line[1] == '\0')
+		return (0);
+	backup = ft_substr(line, count + 1, ft_strlen(line) - count);
+	if (*backup == '\0')
 	{
-		str[i] = line[i];
-		i++;
+		free(backup);
+		backup = NULL;
 	}
-	if (line[i] == '\n')
-	{
-		str[i] = line[i];
-		i++;
-	}
-	str[i] = '\0';
-	return (str);
-}
-
-char	*ft_new_line(char *line)
-{
-	char	*str;
-	int		i;
-	int		j;
-
-	i = 0;
-	while (line[i] && line[i] != '\n')
-		i++;
-	if (!line[i])
-	{
-		free (line);
-		return (NULL);
-	}
-	str = (char *)malloc(sizeof(char) * (ft_strlen(line) - i + 1));
-	if (!str)
-		return (NULL);
-	i++;
-	j = 0;
-	while (line[i])
-		str[j++] = line[i++];
-	str[j] = '\0';
-	free (line);
-	return (str);
+	line[count + 1] = '\0';
+	return (backup);
 }
 
 char	*get_next_line(int fd)
 {
-	static char	*line;
-	char		*next_line;
+	char		*line;
+	char		*buffer;
+	static char	*backup;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
-		perror("File mappa non valido");
-	line = ft_get_line(fd, line);
+		return (0);
+	buffer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (!buffer)
+		return (0);
+	line = read_line(fd, buffer, backup);
+	free(buffer);
+	buffer = NULL;
 	if (!line)
-		perror("Mappa non valida");
-	next_line = ft_get_next_line(line);
-	line = ft_new_line(line);
-	return (next_line);
+		return (NULL);
+	backup = extract_line(line);
+	return (line);
 }
