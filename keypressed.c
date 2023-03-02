@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/28 09:54:07 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/02/28 09:54:07 by dcologgi         ###   ########.fr       */
+/*   Created: 2024/02/28 09:54:07 by dcologgi          #+#    #+#             */
+/*   Updated: 2024/02/28 09:54:07 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,40 +30,40 @@ void	grab_collectible(t_data *game)
 
 void	pg_move(t_data *game, int key_pressed)
 {
-	if (key_pressed == 13 && game->map[game->pgr_pos - 1][game->pgc_pos] != '1')
+	if (key_pressed == 14 && game->map[game->pgr_pos - 1][game->pgc_pos] != '1')
 	{
 		mlx_put_image_to_window(game->mlx, game->win, game->img_floor,
-			game->pgc_pos * 63, game->pgr_pos * 63);
+			game->pgc_pos * 64, game->pgr_pos * 64);
 		game->pgr_pos--;
 		mlx_put_image_to_window(game->mlx, game->win, game->img_player,
-			game->pgc_pos * 63, game->pgr_pos * 63);
+			game->pgc_pos * 64, game->pgr_pos * 64);
 		game->move_counter++;
 	}
 	if (key_pressed == 1 && game->map[game->pgr_pos + 1][game->pgc_pos] != '1')
 	{
 		mlx_put_image_to_window(game->mlx, game->win, game->img_floor,
-			game->pgc_pos * 63, game->pgr_pos * 63);
+			game->pgc_pos * 64, game->pgr_pos * 64);
 		game->pgr_pos++;
 		mlx_put_image_to_window(game->mlx, game->win, game->img_player,
-			game->pgc_pos * 63, game->pgr_pos * 63);
+			game->pgc_pos * 64, game->pgr_pos * 64);
 		game->move_counter++;
 	}
 	if (key_pressed == 0 && game->map[game->pgr_pos][game->pgc_pos - 1] != '1')
 	{
 		mlx_put_image_to_window(game->mlx, game->win, game->img_floor,
-			game->pgc_pos * 63, game->pgr_pos * 63);
+			game->pgc_pos * 64, game->pgr_pos * 64);
 		game->pgc_pos--;
 		mlx_put_image_to_window(game->mlx, game->win, game->img_player,
-			game->pgc_pos * 63, game->pgr_pos * 63);
+			game->pgc_pos * 64, game->pgr_pos * 64);
 		game->move_counter++;
 	}
 	if (key_pressed == 2 && game->map[game->pgr_pos][game->pgc_pos + 1] != '1')
 	{
 		mlx_put_image_to_window(game->mlx, game->win, game->img_floor,
-			game->pgc_pos * 63, game->pgr_pos * 63);
+			game->pgc_pos * 64, game->pgr_pos * 64);
 		game->pgc_pos++;
 		mlx_put_image_to_window(game->mlx, game->win, game->img_player,
-			game->pgc_pos * 63, game->pgr_pos * 63);
+			game->pgc_pos * 64, game->pgr_pos * 64);
 		game->move_counter++;
 	}
 	grab_collectible(game);
