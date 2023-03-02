@@ -6,19 +6,19 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:12:25 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/01 15:02:32 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/02 15:02:44 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
-#include "./minilibx/mlx.h"
-#include "./get_next_line.h"
-#include <unistd.h>
-#include <stdio.h>
-#include <fcntl.h>
-#include <errno.h>
-#include <string.h>
+# include "./minilibx/mlx.h"
+# include "./get_next_line.h"
+# include <unistd.h>
+# include <stdio.h>
+# include <fcntl.h>
+# include <errno.h>
+# include <string.h>
 
 typedef struct s_data {
 	void	*img_player;
@@ -42,17 +42,20 @@ typedef struct s_data {
 	int		pgr_pos;
 	int		pgc_pos;
 	int		fd;
-} t_data;
+}	t_data;
 
-int			exit_game(t_data *game);
-int			open_map(t_data *game, char **argv);
-int			keypressed(int	key_pressed, t_data *game);
-void		pg_move(t_data *game, int key_pressed);
-void		render_imgs(t_data *game);
-void		map_gen(t_data *game);
-void		grab_collectible(t_data *game);
-void		enemy_touch(t_data *game);
-void		check_map(t_data *game);
-void		check_objects(t_data *game);
+int		exit_game(t_data *game);
+int		open_map(t_data *game, char **argv);
+int		keypressed(int key_pressed, t_data *game);
+int		check_vertical_walls(t_data *game);
+int		check_horizontal_walls(t_data *game);
+void	count_objects(t_data *game, int height, int width);
+void	pg_move(t_data *game, int key_pressed);
+void	render_imgs(t_data *game);
+void	map_gen(t_data *game);
+void	grab_collectible(t_data *game);
+void	enemy_touch(t_data *game);
+void	check_map(t_data *game);
+void	check_objects(t_data *game);
 
 #endif

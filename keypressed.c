@@ -16,7 +16,7 @@ void	enemy_touch(t_data *game)
 {
 	if (game->map[game->pgr_pos][game->pgc_pos] == 'N')
 	{
-		write(1, "YOU LOSE\n", 9);
+		printf("%s\n", "YOU LOSE");
 		exit_game(game);
 	}
 }
@@ -36,7 +36,7 @@ void	pg_move(t_data *game, int key_pressed)
 			game->pgc_pos * 63, game->pgr_pos * 63);
 		game->pgr_pos--;
 		mlx_put_image_to_window(game->mlx, game->win, game->img_player,
-			game->pgc_pos * 63, game->pgr_pos *63);
+			game->pgc_pos * 63, game->pgr_pos * 63);
 		game->move_counter++;
 	}
 	if (key_pressed == 1 && game->map[game->pgr_pos + 1][game->pgc_pos] != '1')
@@ -45,16 +45,16 @@ void	pg_move(t_data *game, int key_pressed)
 			game->pgc_pos * 63, game->pgr_pos * 63);
 		game->pgr_pos++;
 		mlx_put_image_to_window(game->mlx, game->win, game->img_player,
-			game->pgc_pos * 63, game->pgr_pos *63);
+			game->pgc_pos * 63, game->pgr_pos * 63);
 		game->move_counter++;
-		}
+	}
 	if (key_pressed == 0 && game->map[game->pgr_pos][game->pgc_pos - 1] != '1')
 	{
 		mlx_put_image_to_window(game->mlx, game->win, game->img_floor,
 			game->pgc_pos * 63, game->pgr_pos * 63);
 		game->pgc_pos--;
 		mlx_put_image_to_window(game->mlx, game->win, game->img_player,
-			game->pgc_pos * 63, game->pgr_pos *63);
+			game->pgc_pos * 63, game->pgr_pos * 63);
 		game->move_counter++;
 	}
 	if (key_pressed == 2 && game->map[game->pgr_pos][game->pgc_pos + 1] != '1')
@@ -63,7 +63,7 @@ void	pg_move(t_data *game, int key_pressed)
 			game->pgc_pos * 63, game->pgr_pos * 63);
 		game->pgc_pos++;
 		mlx_put_image_to_window(game->mlx, game->win, game->img_player,
-			game->pgc_pos * 63, game->pgr_pos *63);
+			game->pgc_pos * 63, game->pgr_pos * 63);
 		game->move_counter++;
 	}
 	grab_collectible(game);
@@ -74,9 +74,12 @@ void	pg_move(t_data *game, int key_pressed)
 
 int	keypressed(int key_pressed, t_data *game)
 {
-	while (game->map[game->pgr_pos][game->pgc_pos] != 'E'
+	if (game->map[game->pgr_pos][game->pgc_pos] == 'E'
 		&& game->collectible == 0)
-			pg_move(game, key_pressed);
-	printf("%s\n", "YOU WIN");
+	{
+		printf("%s\n", "YOU WIN");
+		exit_game(game);
+	}
+	pg_move(game, key_pressed);
 	return (1);
 }

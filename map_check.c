@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors.c                                           :+:      :+:    :+:   */
+/*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 09:47:44 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/02 13:05:45 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/02 14:53:23 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,36 +21,6 @@ static void	check_shape(t_data *game)
 	}
 }
 
-static int	check_horizontal_walls(t_data *game)
-{
-	int	i;
-
-	i = 0;
-	while (i < game->hwall_len)
-	{
-		if (!(game->map[0][i] == '1' &&
-			game->map[game->vwall_len - 1][i] == '1'))
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-static int	check_vertical_walls(t_data *game)
-{
-	int	i;
-
-	i = 0;
-	while (i < game->vwall_len)
-	{
-		if (!(game->map[i][0] == '1' &&
-			game->map[i][game->hwall_len - 1] == '1'))
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
 static void	check_walls(t_data *game)
 {
 	int	horizontal_walls;
@@ -63,26 +33,6 @@ static void	check_walls(t_data *game)
 		perror("Errore bordi mappa");
 		exit_game(game);
 	}
-}
-
-static void	count_objects(t_data *game, int height, int width)
-{
-	if (game->map[height][width] != '1' && game->map[height][width] != '0' &&
-		game->map[height][width] != 'P' && game->map[height][width] != 'C' &&
-		game->map[height][width] != 'E' && game->map[height][width] != 'N' &&
-		game->map[height][width] != '\n')
-	{
-		perror("Oggetto non definito in mappa");
-		exit_game(game);
-	}
-	if (game->map[height][width] == 'P')
-		game->player++;
-	if (game->map[height][width] == 'E')
-		game->exit++;
-	if (game->map[height][width] == 'C')
-		game->collectible++;
-	if (game->map[height][width] == 'N')
-		game->enemy++;
 }
 
 void	check_objects(t_data *game)
@@ -101,8 +51,8 @@ void	check_objects(t_data *game)
 		}
 		i++;
 	}
-	if (game->player != 1 || game->enemy == 0 || game->exit != 1 ||
-		game->collectible == 0)
+	if (game->player != 1 || game->enemy == 0 || game->exit != 1
+		|| game->collectible == 0)
 	{
 		perror("Errore oggetti mappa");
 		exit_game(game);

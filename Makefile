@@ -6,14 +6,14 @@
 #    By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 09:52:47 by dcologgi          #+#    #+#              #
-#    Updated: 2023/03/01 13:03:38 by dcologgi         ###   ########.fr        #
+#    Updated: 2023/03/02 14:53:21 by dcologgi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
 SRCS = get_map.c close_game.c keypressed.c get_next_line.c \
-get_next_line_utils.c main.c map_gen.c errors.c
+get_next_line_utils.c main.c map_gen.c map_check.c checks.c
 
 OBJS = ${SRCS:.c=.o}
 
