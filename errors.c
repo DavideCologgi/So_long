@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 09:47:44 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/01 13:08:52 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/02 13:05:45 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	check_shape(t_data *game)
 {
-	if (game->hwall_len == game->vwall_len)
+	if (game->hwall_len - 1 == game->vwall_len)
 	{
 		perror("Mappa non rettangolare");
 		exit_game(game);
