@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:12:25 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/06 09:49:19 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/06 16:05:59 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,7 @@ void	move_up(t_data *game);
 void	move_down(t_data *game);
 void	move_left(t_data *game);
 void	move_right(t_data *game);
+void	display_counter(t_data *game);
+char	*ft_itoa(int n);
 
 #endif

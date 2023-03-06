@@ -45,5 +45,6 @@ int	pg_move(int keycode, t_data *game)
 		exit_game(game);
 	grab_collectible(game);
 	enemy_touch(game);
+	display_counter(game);
 	return (0);
 }
