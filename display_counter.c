@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:55:34 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/06 16:02:52 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/06 17:55:39 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,14 @@ char	*ft_itoa(int n)
 
 void	display_counter(t_data *game)
 {
-	char	*move_counter;
+	char	*smove_counter;
 
-	move_counter = ft_itoa(game->move_counter);
-	mlx_string_put(game->mlx, game->win, 0, 0, 0xFFFFFF, "Mosse effettuate: ");
-	mlx_string_put(game->mlx, game->win, 0, 0, 0xFFFFFF, move_counter);
+	smove_counter = ft_itoa(game->move_counter);
+	mlx_string_put(game->mlx, game->win, 10, ((game->vwall_len + 1) * 64) - 30,
+		0xFF0000, "MOSSE EFFETTUATE: ");
+	mlx_string_put(game->mlx, game->win, 150, ((game->vwall_len + 1) * 64) - 30,
+		0xFF0000, smove_counter);
+	printf("%s", "Mosse effettuate: ");
+	printf("%d\n", game->move_counter);
+	free(smove_counter);
 }

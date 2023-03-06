@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 11:27:28 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/06 12:37:18 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/06 16:24:08 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main(int argc, char **argv)
 	check_map(&game);
 	game.mlx = mlx_init();
 	game.win = mlx_new_window(game.mlx, game.hwall_len * 64,
-			game.vwall_len * 64, "Eden's Snake");
+			(game.vwall_len + 1) * 64, "Eden's Snake");
 	render_imgs(&game);
 	map_gen(&game);
 	mlx_key_hook(game.win, pg_move, &game);
