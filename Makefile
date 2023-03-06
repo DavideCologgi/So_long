@@ -6,13 +6,13 @@
 #    By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 09:52:47 by dcologgi          #+#    #+#              #
-#    Updated: 2023/03/02 14:53:21 by dcologgi         ###   ########.fr        #
+#    Updated: 2023/03/06 09:48:30 by dcologgi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
-SRCS = get_map.c close_game.c keypressed.c get_next_line.c \
+SRCS = get_map.c close_game.c pg_move.c get_next_line.c move.c \
 get_next_line_utils.c main.c map_gen.c map_check.c checks.c
 
 OBJS = ${SRCS:.c=.o}

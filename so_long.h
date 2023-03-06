@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:12:25 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/02 15:02:44 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/06 09:49:19 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,16 +46,19 @@ typedef struct s_data {
 
 int		exit_game(t_data *game);
 int		open_map(t_data *game, char **argv);
-int		keypressed(int key_pressed, t_data *game);
 int		check_vertical_walls(t_data *game);
 int		check_horizontal_walls(t_data *game);
+int		pg_move(int keycode, t_data *game);
 void	count_objects(t_data *game, int height, int width);
-void	pg_move(t_data *game, int key_pressed);
 void	render_imgs(t_data *game);
 void	map_gen(t_data *game);
 void	grab_collectible(t_data *game);
 void	enemy_touch(t_data *game);
 void	check_map(t_data *game);
 void	check_objects(t_data *game);
+void	move_up(t_data *game);
+void	move_down(t_data *game);
+void	move_left(t_data *game);
+void	move_right(t_data *game);
 
 #endif
