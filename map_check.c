@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 09:47:44 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/06 10:26:11 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/06 11:30:20 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	check_objects(t_data *game)
 
 void	check_map(t_data *game)
 {
-	check_shape(game);
 	check_walls(game);
+	check_shape(game);
 	check_objects(game);
 }

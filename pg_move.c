@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 08:47:22 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/06 10:30:00 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/06 10:49:24 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ void	move_up(t_data *game)
 		printf("%s\n", "YOU WIN");
 		exit_game(game);
 	}
-	if (game->map[game->pgr_pos - 1][game->pgc_pos] != '1')
+	if (game->map[game->pgr_pos - 1][game->pgc_pos] != '1'
+		&& game->map[game->pgr_pos - 1][game->pgc_pos] != 'E')
 	{
 		mlx_put_image_to_window(game->mlx, game->win, game->img_floor,
 			game->pgc_pos * 64, game->pgr_pos * 64);
@@ -40,7 +41,8 @@ void	move_down(t_data *game)
 		printf("%s\n", "YOU WIN");
 		exit_game(game);
 	}
-	if (game->map[game->pgr_pos + 1][game->pgc_pos] != '1')
+	if (game->map[game->pgr_pos + 1][game->pgc_pos] != '1'
+		&& game->map[game->pgr_pos + 1][game->pgc_pos] != 'E')
 	{
 		mlx_put_image_to_window(game->mlx, game->win, game->img_floor,
 			game->pgc_pos * 64, game->pgr_pos * 64);
@@ -60,7 +62,8 @@ void	move_left(t_data *game)
 		printf("%s\n", "YOU WIN");
 		exit_game(game);
 	}
-	if (game->map[game->pgr_pos][game->pgc_pos - 1] != '1')
+	if (game->map[game->pgr_pos][game->pgc_pos - 1] != '1'
+		&& game->map[game->pgr_pos][game->pgc_pos - 1] != 'E')
 	{
 		mlx_put_image_to_window(game->mlx, game->win, game->img_floor,
 			game->pgc_pos * 64, game->pgr_pos * 64);
@@ -80,7 +83,8 @@ void	move_right(t_data *game)
 		printf("%s\n", "YOU WIN");
 		exit_game(game);
 	}
-	if (game->map[game->pgr_pos][game->pgc_pos + 1] != '1')
+	if (game->map[game->pgr_pos][game->pgc_pos + 1] != '1'
+		&& game->map[game->pgr_pos][game->pgc_pos + 1] != 'E')
 	{
 		mlx_put_image_to_window(game->mlx, game->win, game->img_floor,
 			game->pgc_pos * 64, game->pgr_pos * 64);

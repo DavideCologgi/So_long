@@ -24,7 +24,10 @@ void	enemy_touch(t_data *game)
 void	grab_collectible(t_data *game)
 {
 	if (game->map[game->pgr_pos][game->pgc_pos] == 'C')
+	{
 		game->collectible--;
+		game->map[game->pgr_pos][game->pgc_pos] = '0';
+	}
 	return ;
 }
 
