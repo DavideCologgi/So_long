@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 11:27:28 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/06 09:49:19 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/06 10:01:02 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int	main(int argc, char **argv)
 	render_imgs(&game);
 	map_gen(&game);
 	mlx_key_hook(game.win, pg_move, &game);
-	mlx_hook(game.win, 2, 1L << 0, exit_game, &game);
 	mlx_hook(game.win, 17, 0, exit_game, &game);
 	mlx_loop(game.mlx);
 	return (0);

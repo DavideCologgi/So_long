@@ -30,16 +30,17 @@ void	grab_collectible(t_data *game)
 
 int	pg_move(int keycode, t_data *game)
 {
-	if (keycode == 13 && game->map[game->pgr_pos - 1][game->pgc_pos] != '1')
+	if (keycode == 13)
 		move_up(game);
-	if (keycode == 1 && game->map[game->pgr_pos + 1][game->pgc_pos] != '1')
+	if (keycode == 1)
 		move_down(game);
-	if (keycode == 0 && game->map[game->pgr_pos][game->pgc_pos - 1] != '1')
+	if (keycode == 0)
 		move_left(game);
-	if (keycode == 2 && game->map[game->pgr_pos][game->pgc_pos + 1] != '1')
+	if (keycode == 2)
 		move_right(game);
+	if (keycode == 53)
+		exit_game(game);
 	grab_collectible(game);
 	enemy_touch(game);
-	printf("%i\n", game->move_counter);
-	return (1);
+	return (0);
 }
