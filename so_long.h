@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:12:25 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/06 16:05:59 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/07 10:19:48 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,13 @@ void	move_up(t_data *game);
 void	move_down(t_data *game);
 void	move_left(t_data *game);
 void	move_right(t_data *game);
+void	draw_people(t_data *game, int r, int c);
+void	draw_object(t_data *game, int r, int c);
+void	draw_wall(t_data *game, int r, int c);
+void	draw_floor(t_data *game, int r, int c);
 void	display_counter(t_data *game);
+void	clean_string(t_data *game);
+void	*ft_memset(void *b, int c, size_t length);
 char	*ft_itoa(int n);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:55:34 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/06 17:55:39 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/07 10:00:54 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,16 +63,39 @@ char	*ft_itoa(int n)
 	return (itoa);
 }
 
+void	clean_string(t_data *game)
+{
+	void	*img_ptr;
+	char	*img_data;
+	int		size_line;
+	int		endian;
+	int		bits_per_pixel;
+
+	img_ptr = mlx_new_image(game->mlx, game->hwall_len * 64, 64);
+	img_data = mlx_get_data_addr(img_ptr, &bits_per_pixel,
+			&size_line, &endian);
+	ft_memset(img_data, 0, game->hwall_len * 64 * (bits_per_pixel / 8));
+	mlx_put_image_to_window(game->mlx, game->win, img_ptr,
+		0, game->vwall_len * 64);
+}
+
 void	display_counter(t_data *game)
 {
 	char	*smove_counter;
+	int		i;
 
+	i = game->move_counter;
+	clean_string(game);
 	smove_counter = ft_itoa(game->move_counter);
 	mlx_string_put(game->mlx, game->win, 10, ((game->vwall_len + 1) * 64) - 30,
 		0xFF0000, "MOSSE EFFETTUATE: ");
 	mlx_string_put(game->mlx, game->win, 150, ((game->vwall_len + 1) * 64) - 30,
 		0xFF0000, smove_counter);
-	printf("%s", "Mosse effettuate: ");
-	printf("%d\n", game->move_counter);
+	if (i != game->move_counter)
+	{
+		printf("%s", "Mosse effettuate: ");
+		printf("%d\n", game->move_counter);
+		i++;
+	}
 	free(smove_counter);
 }

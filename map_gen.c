@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 09:54:17 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/06 16:13:43 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/07 10:19:01 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,27 +40,13 @@ void	map_gen(t_data *game)
 		c = 0;
 		while (game->map[r][c])
 		{
-			mlx_put_image_to_window(game->mlx, game->win, game->img_floor,
-				c * 64, r * 64);
+			draw_floor(game, r, c);
 			if (game->map[r][c] == '1')
-				mlx_put_image_to_window(game->mlx, game->win, game->img_wall,
-					c * 64, r * 64);
-			if (game->map[r][c] == 'P')
-			{
-				mlx_put_image_to_window(game->mlx, game->win, game->img_player,
-					c * 64, r * 64);
-				game->pgr_pos = r;
-				game->pgc_pos = c;
-			}
-			if (game->map[r][c] == 'E')
-				mlx_put_image_to_window(game->mlx, game->win, game->img_exit,
-					c * 64, r * 64);
-			if (game->map[r][c] == 'C')
-				mlx_put_image_to_window(game->mlx, game->win,
-					game->img_collectible, c * 64, r * 64);
-			if (game->map[r][c] == 'N')
-				mlx_put_image_to_window(game->mlx, game->win, game->img_enemy,
-					c * 64, r * 64);
+				draw_wall(game, r, c);
+			else if (game->map[r][c] == 'P' || game->map[r][c] == 'N')
+				draw_people(game, r, c);
+			else if (game->map[r][c] == 'E' || game->map[r][c] == 'C')
+				draw_object(game, r, c);
 			c++;
 		}
 		r++;
