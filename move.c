@@ -33,6 +33,7 @@ void	grab_collectible(t_data *game)
 
 int	pg_move(int keycode, t_data *game)
 {
+	game->counter = game->move_counter;
 	if (keycode == 13)
 		move_up(game);
 	if (keycode == 1)

@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:12:25 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/07 10:19:48 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/07 15:28:51 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,11 @@ typedef struct s_data {
 	void	*img_collectible;
 	void	*mlx;
 	void	*win;
+	void	*enemy_sprite[4];
 	char	**map;
+	int		sprite_counter;
 	int		move_counter;
+	int		counter;
 	int		img_width;
 	int		img_height;
 	int		vwall_len;
@@ -39,6 +42,7 @@ typedef struct s_data {
 	int		exit;
 	int		collectible;
 	int		enemy;
+	int		loop;
 	int		pgr_pos;
 	int		pgc_pos;
 	int		fd;
@@ -49,8 +53,10 @@ int		open_map(t_data *game, char **argv);
 int		check_vertical_walls(t_data *game);
 int		check_horizontal_walls(t_data *game);
 int		pg_move(int keycode, t_data *game);
+int		enemy_loop(t_data *game);
 void	count_objects(t_data *game, int height, int width);
 void	render_imgs(t_data *game);
+void	animation_array(t_data *game);
 void	map_gen(t_data *game);
 void	grab_collectible(t_data *game);
 void	enemy_touch(t_data *game);

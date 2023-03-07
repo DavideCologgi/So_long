@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:55:34 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/07 10:00:54 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/07 15:41:31 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,20 +82,17 @@ void	clean_string(t_data *game)
 void	display_counter(t_data *game)
 {
 	char	*smove_counter;
-	int		i;
 
-	i = game->move_counter;
 	clean_string(game);
 	smove_counter = ft_itoa(game->move_counter);
 	mlx_string_put(game->mlx, game->win, 10, ((game->vwall_len + 1) * 64) - 30,
 		0xFF0000, "MOSSE EFFETTUATE: ");
 	mlx_string_put(game->mlx, game->win, 150, ((game->vwall_len + 1) * 64) - 30,
 		0xFF0000, smove_counter);
-	if (i != game->move_counter)
+	if (game->move_counter != game->counter)
 	{
 		printf("%s", "Mosse effettuate: ");
 		printf("%d\n", game->move_counter);
-		i++;
 	}
 	free(smove_counter);
 }
