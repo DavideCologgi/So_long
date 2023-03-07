@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 09:54:17 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/07 15:48:11 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/07 16:03:40 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,11 @@ void	render_imgs(t_data *game)
 			&game->img_width, &game->img_height);
 	game->img_floor = mlx_xpm_file_to_image(game->mlx, "./imgs/floor_tile.xpm",
 			&game->img_width, &game->img_height);
-	game->img_enemy = mlx_xpm_file_to_image(game->mlx,
-			"./imgs/enemysprite1.xpm", &game->img_width, &game->img_height);
 	game->img_exit = mlx_xpm_file_to_image(game->mlx, "./imgs/exit_tile.xpm",
 			&game->img_width, &game->img_height);
 	game->img_collectible = mlx_xpm_file_to_image(game->mlx,
 			"./imgs/collectible_tile.xpm", &game->img_width, &game->img_height);
+	animation_array(game);
 	return ;
 }
 
@@ -51,5 +50,6 @@ void	map_gen(t_data *game)
 		}
 		r++;
 	}
+	game->sprite_counter = (game->sprite_counter + 1) % 4;
 	return ;
 }
