@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 10:05:50 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/08 13:40:51 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/08 17:25:29 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,12 @@ void	draw_people(t_data *game, int r, int c)
 void	draw_object(t_data *game, int r, int c)
 {
 	if (game->map[r][c] == 'E')
+	{
 		mlx_put_image_to_window(game->mlx, game->win, game->img_exit,
 			c * 64, r * 64);
+		game->exitr_pos = r;
+		game->exitc_pos = c;
+	}
 	else
 		mlx_put_image_to_window(game->mlx, game->win,
 			game->img_collectible, c * 64, r * 64);

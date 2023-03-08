@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:12:25 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/08 14:28:16 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/08 17:54:32 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ typedef struct s_data {
 	int				loop;
 	int				pgr_pos;
 	int				pgc_pos;
+	int				exitr_pos;
+	int				exitc_pos;
 	int				fd;
 }	t_data;
 

@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 08:47:22 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/06 17:30:45 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/08 17:53:37 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	move_up(t_data *game)
 	if (game->map[game->pgr_pos - 1][game->pgc_pos] == 'E'
 		&& game->collectible == 0)
 	{
-		printf("%s\n", "YOU WIN");
+		ft_putstr("YOU WIN\n");
 		exit_game(game);
 	}
 	if (game->map[game->pgr_pos - 1][game->pgc_pos] != '1'
@@ -37,7 +37,7 @@ void	move_down(t_data *game)
 	if (game->map[game->pgr_pos + 1][game->pgc_pos] == 'E'
 		&& game->collectible == 0)
 	{
-		printf("%s\n", "YOU WIN");
+		ft_putstr("YOU WIN\n");
 		exit_game(game);
 	}
 	if (game->map[game->pgr_pos + 1][game->pgc_pos] != '1'
@@ -57,7 +57,7 @@ void	move_left(t_data *game)
 	if (game->map[game->pgr_pos][game->pgc_pos - 1] == 'E'
 		&& game->collectible == 0)
 	{
-		printf("%s\n", "YOU WIN");
+		ft_putstr("YOU WIN\n");
 		exit_game(game);
 	}
 	if (game->map[game->pgr_pos][game->pgc_pos - 1] != '1'
@@ -77,7 +77,7 @@ void	move_right(t_data *game)
 	if (game->map[game->pgr_pos][game->pgc_pos + 1] == 'E'
 		&& game->collectible == 0)
 	{
-		printf("%s\n", "YOU WIN");
+		ft_putstr("YOU WIN\n");
 		exit_game(game);
 	}
 	if (game->map[game->pgr_pos][game->pgc_pos + 1] != '1'

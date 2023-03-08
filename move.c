@@ -16,7 +16,7 @@ void	enemy_touch(t_data *game)
 {
 	if (game->map[game->pgr_pos][game->pgc_pos] == 'N')
 	{
-		printf("%s\n", "YOU LOSE");
+		ft_putstr("YOU LOSE\n");
 		exit_game(game);
 	}
 }
@@ -27,6 +27,13 @@ void	grab_collectible(t_data *game)
 	{
 		game->collectible--;
 		game->map[game->pgr_pos][game->pgc_pos] = '0';
+	}
+	if (game->collectible == 0)
+	{
+		game->img_exit = mlx_xpm_file_to_image(game->mlx,
+			"./imgs/apple_tree.xpm", &game->img_width, &game->img_height);
+		mlx_put_image_to_window(game->mlx, game->win, game->img_exit,
+			game->exitc_pos * 64, game->exitr_pos * 64);
 	}
 	return ;
 }
