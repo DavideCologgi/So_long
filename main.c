@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 11:27:28 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/08 10:05:56 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/08 13:52:41 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,34 @@ void	*ft_memset(void *b, int c, size_t length)
 	return (b);
 }
 
+static int	check_map_format(char *argv)
+{
+	int	i;
+
+	if (!argv)
+		return (0);
+	i = 0;
+	while (argv[i])
+		i++;
+	i -= 1;
+	if (argv[i] == 'r' && argv[i - 1] == 'e'
+		&& argv[i - 2] == 'b' && argv[i - 3] == '.')
+		return (1);
+	return (0);
+}
+
 int	main(int argc, char **argv)
 {
 	t_data	game;
 
 	if (argc != 2)
 	{
-		perror("Troppi argomenti");
+		perror("Numero argomenti != 2");
+		exit_game(&game);
+	}
+	if (!check_map_format(argv[1]))
+	{
+		perror("File mappa non .ber");
 		exit_game(&game);
 	}
 	ft_memset(&game, 0, sizeof(t_data));

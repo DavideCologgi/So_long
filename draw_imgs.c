@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 10:05:50 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/07 15:57:47 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/08 13:40:51 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	draw_people(t_data *game, int r, int c)
 		game->pgc_pos = c;
 	}
 	else
-		mlx_put_image_to_window(game->mlx, game->win, game->enemy_sprite[game->sprite_counter],
+		mlx_put_image_to_window(game->mlx, game->win, game->img_enemy,
 			c * 64, r * 64);
 }
 

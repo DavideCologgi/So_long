@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:12:25 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/07 15:28:51 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/08 13:41:46 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,7 @@ typedef struct s_data {
 	void	*img_collectible;
 	void	*mlx;
 	void	*win;
-	void	*enemy_sprite[4];
 	char	**map;
-	int		sprite_counter;
 	int		move_counter;
 	int		counter;
 	int		img_width;
