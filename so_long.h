@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:12:25 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/08 13:41:46 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/08 14:28:16 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,37 +21,40 @@
 # include <string.h>
 
 typedef struct s_data {
-	void	*img_player;
-	void	*img_wall;
-	void	*img_floor;
-	void	*img_enemy;
-	void	*img_exit;
-	void	*img_collectible;
-	void	*mlx;
-	void	*win;
-	char	**map;
-	int		move_counter;
-	int		counter;
-	int		img_width;
-	int		img_height;
-	int		vwall_len;
-	int		hwall_len;
-	int		player;
-	int		exit;
-	int		collectible;
-	int		enemy;
-	int		loop;
-	int		pgr_pos;
-	int		pgc_pos;
-	int		fd;
+	void			*img_player;
+	void			*img_wall;
+	void			*img_floor;
+	void			*img_enemy;
+	void			*img_exit;
+	void			*img_collectible;
+	void			*mlx;
+	void			*win;
+	char			**map;
+	unsigned int	move_counter;
+	unsigned int	counter;
+	int				img_width;
+	int				img_height;
+	int				vwall_len;
+	int				hwall_len;
+	int				player;
+	int				exit;
+	int				collectible;
+	int				enemy;
+	int				loop;
+	int				pgr_pos;
+	int				pgc_pos;
+	int				fd;
 }	t_data;
 
+int		ft_putstr(char *str);
+int		ft_putunbr(unsigned int nb);
 int		exit_game(t_data *game);
 int		open_map(t_data *game, char **argv);
 int		check_vertical_walls(t_data *game);
 int		check_horizontal_walls(t_data *game);
 int		pg_move(int keycode, t_data *game);
 int		enemy_loop(t_data *game);
+void	ft_putchar(char c);
 void	count_objects(t_data *game, int height, int width);
 void	render_imgs(t_data *game);
 void	animation_array(t_data *game);

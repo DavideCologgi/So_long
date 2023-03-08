@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 15:55:34 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/07 15:41:31 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/08 14:30:32 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,8 +91,9 @@ void	display_counter(t_data *game)
 		0xFF0000, smove_counter);
 	if (game->move_counter != game->counter)
 	{
-		printf("%s", "Mosse effettuate: ");
-		printf("%d\n", game->move_counter);
+		ft_putstr("Mosse effettuate: ");
+		ft_putunbr(game->move_counter);
+		ft_putstr("\n");
 	}
 	free(smove_counter);
 }

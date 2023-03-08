@@ -6,21 +6,11 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 11:27:28 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/08 13:52:41 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/08 14:29:12 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void	*ft_memset(void *b, int c, size_t length)
-{
-	unsigned char	*p;
-
-	p = (unsigned char *)b;
-	while (length--)
-		*p++ = (unsigned char)c;
-	return (b);
-}
 
 static int	check_map_format(char *argv)
 {
@@ -50,7 +40,7 @@ int	main(int argc, char **argv)
 	if (!check_map_format(argv[1]))
 	{
 		perror("File mappa non .ber");
-		exit_game(&game);
+		exit(0);
 	}
 	ft_memset(&game, 0, sizeof(t_data));
 	open_map(&game, argv);
