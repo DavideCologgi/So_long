@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:12:25 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/08 17:54:32 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/09 10:21:08 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # include <string.h>
 
 typedef struct s_data {
+	unsigned int	move_counter;
+	unsigned int	counter;
 	void			*img_player;
 	void			*img_wall;
 	void			*img_floor;
@@ -30,8 +32,6 @@ typedef struct s_data {
 	void			*mlx;
 	void			*win;
 	char			**map;
-	unsigned int	move_counter;
-	unsigned int	counter;
 	int				img_width;
 	int				img_height;
 	int				vwall_len;
@@ -40,7 +40,6 @@ typedef struct s_data {
 	int				exit;
 	int				collectible;
 	int				enemy;
-	int				loop;
 	int				pgr_pos;
 	int				pgc_pos;
 	int				exitr_pos;
