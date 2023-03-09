@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 09:47:44 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/08 13:54:11 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/09 10:48:06 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	check_shape(t_data *game)
 {
 	if (game->hwall_len == game->vwall_len)
 	{
-		perror("Mappa non rettangolare");
+		ft_putstr("Mappa non rettangolare\n");
 		exit_game(game);
 	}
 }
@@ -30,7 +30,7 @@ static void	check_walls(t_data *game)
 	vertical_walls = check_vertical_walls(game);
 	if (!horizontal_walls || !vertical_walls)
 	{
-		perror("Errore bordi mappa");
+		ft_putstr("Errore bordi mappa\n");
 		exit_game(game);
 	}
 }
@@ -54,7 +54,7 @@ void	check_objects(t_data *game)
 	if (game->player != 1 || game->enemy == 0 || game->exit != 1
 		|| game->collectible == 0)
 	{
-		perror("Errore oggetti mappa");
+		ft_putstr("Errore oggetti mappa\n");
 		exit_game(game);
 	}
 }

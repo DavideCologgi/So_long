@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 11:27:28 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/09 10:43:05 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/09 10:45:37 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	main(int argc, char **argv)
 	{
 		if (!check_map_format(argv[1]))
 		{
-			perror("File mappa non .ber");
+			ft_putstr("File mappa non .ber\n");
 			exit(0);
 		}
 		ft_memset(&game, 0, sizeof(t_data));

@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 13:42:42 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/08 17:53:43 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/09 10:47:54 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	count_objects(t_data *game, int height, int width)
 		&& game->map[height][width] != 'E' && game->map[height][width] != 'N'
 		&& game->map[height][width] != '\n')
 	{
-		perror("Oggetto non definito in mappa");
+		ft_putstr("Oggetto non definito in mappa\n");
 		exit_game(game);
 	}
 	if (game->map[height][width] == 'P')

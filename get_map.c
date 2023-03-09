@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 10:51:56 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/02 13:16:52 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/09 10:47:24 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	open_map(t_data *game, char **argv)
 	game->fd = open(argv[1], O_RDONLY);
 	if (game->fd < 0)
 	{
-		perror("Caricamento mappa fallito");
+		ft_putstr("Caricamento mappa fallito\n");
 		exit_game(game);
 	}
 	while (1)
