@@ -1,7 +1,5 @@
 # So Long
 
-## Game Description
-
 So Long is a basic 2D game where the player controls Eden's snake, which needs to collect all the apples scattered around the level while being cautious of enemy eagles.
 
 ## General Instructions
