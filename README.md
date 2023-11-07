@@ -30,6 +30,6 @@ To launch the game, follow these simple steps:
 
 1. Be sure to be inside the "so_long" folder.
 2. Run the following command: `make` to compile the game.
-3. Start the game by running the command: `./so_long /maps/map2.ber`. If you want to try a smaller map you can change `map2.ber` with `map1.ber`.
+3. Start the game by running the command: `./so_long /maps/map2.ber`. <br> If you want to try a smaller map you can change `map2.ber` with `map1.ber`.
 
 Enjoy the game!
