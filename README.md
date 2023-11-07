@@ -28,8 +28,8 @@ So Long is a basic 2D game where the player controls Eden's snake, which needs t
 
 To launch the game, follow these simple steps:
 
-1. Navigate to the "so_long" folder.
+1. Be sure to be inside the "so_long" folder.
 2. Run the following command: `make` to compile the game.
-3. Start the game by running the command: `./so_long "map-name.ber"` where "map-name.ber" is the name of the map file you want to play.
+3. Start the game by running the command: `./so_long /maps/map2.ber`. If you want to try a smaller map you can change `map2.ber` with `map1.ber`.
 
 Enjoy the game!
