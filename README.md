@@ -1,21 +1,37 @@
-You have to create a basic 2D game in which a dolphin escapes Earth after eating some fish.
-Instead of a dolphin, fish, and the Earth, you can use any character, any collectible and any place you want.
+# So Long
 
-1) General instructions:
-- You have to use the graphical library MiniLibX;
-- The program must use a Makefile to compile all of your sources and it must not relink;
-- The program must take as a valid parameter a map description file with the ".ber" extension.
+## Game Description
 
-2) Map rules:
-- Map must be rectangular (not squared);
-- Map must contain one player, one exit and at least one collectible and enemy;
-- Map must be surrounded by walls.
+So Long is a basic 2D game where the player controls Eden's snake, which needs to collect all the apples scattered around the level while being cautious of enemy eagles.
 
-3) Gameplay rules:
-- Player must collect every collectibles on the map before going to the exit;
-- Player must be able to move in four directions: up, left, down and right;
-- Player's movements must be handled with W, A, S, and D keys;
-- Player cannot move into walls;
-- After each move, a counter must be displayed on screen and in the shell;
-- If the player "touch" an enemy, the game closes and you lose;
-- Game must close if either ESC key is pressed or by clicking on the cross on the window’s frame.
+## General Instructions
+
+- The game is built using the graphical library MiniLibX.
+- A Makefile is provided to compile all the source code.
+- The game requires a map description file with the ".ber" extension as a valid parameter.
+
+## Map Rules
+
+- The map must be rectangular (not squared).
+- The map should contain the following elements: one player, one exit, at least one collectible item, and one enemy.
+- The map must be enclosed by walls.
+
+## Gameplay Rules
+
+- The player's objective is to collect all collectibles on the map before reaching the exit.
+- The player can move in four directions: up, left, down, and right.
+- Player movements are controlled using the W, A, S, and D keys.
+- The player cannot move through walls.
+- After each move, a counter is displayed on the screen and in the shell.
+- If the player comes into contact with an enemy, the game closes, and the player loses.
+- The game can be closed by pressing the ESC key or by clicking the cross on the window's frame.
+
+## Launching the Game
+
+To launch the game, follow these simple steps:
+
+1. Navigate to the "so_long" folder.
+2. Run the following command: `make` to compile the game.
+3. Start the game by running the command: `./so_long "map-name.ber"` where "map-name.ber" is the name of the map file you want to play.
+
+Enjoy the game!
