@@ -11,8 +11,8 @@ So Long is a basic 2D game where the player controls Eden's snake, which needs t
 ## Map Rules
 
 - The map must be rectangular (not squared).
-- The map should contain the following elements: one player, one exit, at least one collectible item, and one enemy.
-- The map must be enclosed by walls.
+- The map should contain the following elements: one player (P), one exit (E), at least one collectible item (C), and one enemy (N).
+- The map must be enclosed by walls (1).
 
 ## Gameplay Rules
 
@@ -31,6 +31,6 @@ To launch the game, follow these simple steps:
 1. Be sure to be inside the "so_long" folder.
 2. Run the following command: `make` to compile the game.
 3. Start the game by running the command: `./so_long /maps/map2.ber`. <br>
-If you want to try a smaller map you can change `map2.ber` with `map1.ber`.
+If you want to try a smaller map you can change `map2.ber` with `map1.ber`, or if you want to personalize your level you can modify the map according to map-rules.
 
 Enjoy the game!
